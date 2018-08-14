@@ -12,6 +12,7 @@ The steps a user must take to get this app up and running on their machine is to
 
 ## Architecture
 The technologies used are the python language. VS Code.
+
 ![Lab01](asset/Lab01.png)
 
 ## API
