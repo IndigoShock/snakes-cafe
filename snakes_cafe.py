@@ -4,7 +4,7 @@ import sys
 
 WIDTH = 96
 BANK = [
-    { 
+    {
         'question' : 'What food would you like to order?\n',
         'answer': 'hamburger' or 'cheeseburger' or 'lambburger' or 'cheesecake' or 'applepie' or 'taffy' or 'mozzarellasticks' or 'spinachartichokedip' or 'fries' or 'moscowmule' or 'doublemule' or 'undermule',
         'status': False
@@ -21,9 +21,9 @@ def menu():
     '''))
 
 
-def greeting():  
+def greeting():
     print(dedent(f'''
-    {'*'*36}\n 
+    {'*'*36}\n
     Welcome to the Snakes Cafe!\n To leave this restaurant at any time, type quit.\n Easy as that...unfortunately\n Here is the menu for tonight:\n
     {'*'*36}\n
     '''))
@@ -50,7 +50,7 @@ def feedback(status):
         '''))
         ordering_process()
 
-    else: 
+    else:
         print(dedent('''
             Sorry, I do not understand. Do you mind repeating your order?\n
         '''))
@@ -79,4 +79,3 @@ def ordering_process():
 
 if __name__ == '__main__':
     run()
-
