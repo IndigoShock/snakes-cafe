@@ -12,7 +12,7 @@ TOTAL = (SUBTOTAL + TAX)
 WIDTH = 96
 BANK = [
     {
-        'question' : 'What food would you like to order?\n',
+        'question' : 'What would you like to order?\n',
         'answer': 'hamburger',
         'status': False
     }
@@ -85,12 +85,13 @@ def menu():
     for x in SIDES:
         print (x,':',SIDES[x])
     print('-'*10)
+    ordering_process()
 
 
 def greeting():
     print(dedent(f'''
     {'*'*36}\n
-    Welcome to the Snakes Cafe!\n To leave this restaurant at any time, type quit.\n Easy as that...unfortunately\n Here is the menu for tonight:\n
+    Welcome to the Snakes Cafe!\n To leave this restaurant at any time, type quit.\n Easy as that...unfortunately\n Here is the menu for tonight. You can type in 'menu' again if you would like to see the menu. Or type in any of the categories if you would like to see those specific items:\n
     {'*'*36}\n
     '''))
 
@@ -109,8 +110,42 @@ def check_input(user_in, item):
         feedback(status)
         ordering_process()
 
-    if user_in == 'order':
+    if user_in.lower() == 'order':
         order_total()
+        ordering_process()
+
+    if user_in.lower() == 'menu':
+        menu()
+        ordering_process()
+
+    if user_in.lower() == 'drinks':
+        for x in DRINKS:
+            print(x,':',DRINKS[x])
+        ordering_process()
+
+    if user_in.lower() == 'entrees':
+        for x in ENTREES:
+            print (x,':',ENTREES[x])
+        ordering_process()
+
+    if user_in.lower() == 'appetizers':
+        for x in APPETIZERS:
+            print (x,':',APPETIZERS[x])
+        ordering_process()
+
+    if user_in.lower() == 'entrees':
+        for x in ENTREES:
+            print (x,':',ENTREES[x])
+        ordering_process()
+
+    if user_in.lower() == 'desserts':
+        for x in DESSERTS:
+            print (x,':',DESSERTS[x])
+        ordering_process()
+
+    if user_in.lower() == 'sides':
+        for x in SIDES:
+            print (x,':',SIDES[x])
         ordering_process()
 
 
@@ -168,12 +203,12 @@ def ordering_process():
             user_in = ask_question(item['question'])
             status = check_input(user_in, item)
             feedback(status)
+            item['status'] is False
 
 
 def run():
     greeting()
     menu()
-    ordering_process()
 
 
 if __name__ == '__main__':
