@@ -1,9 +1,11 @@
 from textwrap import dedent
 import sys
 
+'''totals at the top as global variables for easier access. helps with scoping'''
 SUBTOTAL = 0
 TAX = SUBTOTAL * 0.101
 TOTAL = (SUBTOTAL + TAX)
+
 
 WIDTH = 96
 BANK = [
@@ -66,6 +68,7 @@ DRINKS = {
 
 def menu():
     for x in DRINKS:
+        '''this round() is not changing to the 2nd or 3rd decimals place. not sure why'''
         print (x,':',round(DRINKS[x],3))
     print('-'*10)
     for x in ENTREES:
