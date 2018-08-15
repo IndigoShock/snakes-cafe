@@ -1,7 +1,7 @@
 # Lab 01: Intro to Python
 
 **Author**: Stephen Harper
-**Version**: 1.0.0
+**Version**: 1.0.1
 **Github**: https://github.com/indigoshock
 
 ## Overview
@@ -20,3 +20,4 @@ No API's were harmed in the making of this.
 
 ## Change Log
 08-13-2018 7:16pm - Functionality. README with visual and config files added.
+08-14-2018 10:41pm - Functionality broken. Refactored. Added test_plan.md.
