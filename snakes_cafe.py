@@ -1,5 +1,7 @@
 from textwrap import dedent
 import sys
+import uuid
+
 
 '''totals at the top as global variables for easier access. helps with scoping'''
 SUBTOTAL = 0
@@ -125,8 +127,10 @@ def feedback(status):
         '''))
 
 
-# def customer_order(user_in):
-#     user_in
+# def customer_order(user_in, items, price):
+    # user_in
+    # items
+    # price
 
 
 def exit():
@@ -142,10 +146,10 @@ def order_total():
         The Snakes Cafe
         "Eatability Counts"
 
-        Order #{uuid4()}
+        Order #{uuid.uuid4()}
         {'='*36}
 
-        # {customer_order[x]}           {customer_order[y]}
+        # {customer_order.items}           {customer_order.price}
 
     {'-'*18}
 
