@@ -12,11 +12,6 @@ CATEGORIES = ['entrees', 'appetizers', 'desserts', 'sides', 'drinks']
 WIDTH = 96
 BANK = [
     {
-        'question' : 'What would you like to order?\n',
-        'answer': 'hamburger',
-        'status': False
-    }
-    {
     'category': 'entrees',
     'name': 'Hamburger',
     'item': 'hamburger',
@@ -380,11 +375,11 @@ BANK = [
 
 
 def menu():
-    for x in DRINKS:
+    for x in BANK:
         '''this round() is not changing to the 2nd or 3rd decimals place. not sure why'''
-        print (x,':',round(DRINKS[x],3))
+        print (x,':',round(BANK))
     print('-'*10)
-    for x in ENTREES:
+    for x in BANK:
         print (x,':',ENTREES[x])
     print('-'*10)
     for x in APPETIZERS:
@@ -405,10 +400,6 @@ def greeting():
     Welcome to the Snakes Cafe!\n To leave this restaurant at any time, type quit.\n Easy as that...unfortunately\n Here is the menu for tonight. You can type in 'menu' again if you would like to see the menu. Or type in any of the categories if you would like to see those specific items:\n
     {'*'*36}\n
     '''))
-
-
-def ask_question(question):
-    return input(question)
 
 
 def check_input(user_in, item):
@@ -495,7 +486,7 @@ def order_total():
         Order #{uuid.uuid4()}
         {'='*36}
 
-        # {customer_order.items}           {customer_order.price}
+        # {customer_order.items}{customer_order.price}
 
     {'-'*18}
 
@@ -509,12 +500,7 @@ def order_total():
 
 
 def ordering_process():
-    for item in BANK:
-        while item['status'] is False:
-            user_in = ask_question(item['question'])
-            status = check_input(user_in, item)
-            feedback(status)
-            item['status'] is False
+    print('What would you like to order?')
 
 
 def run():
