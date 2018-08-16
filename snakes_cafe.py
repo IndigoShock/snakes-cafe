@@ -4,76 +4,382 @@ import uuid
 
 
 '''totals at the top as global variables for easier access. helps with scoping'''
-SUBTOTAL = 0
-TAX = SUBTOTAL * 0.101
-TOTAL = (SUBTOTAL + TAX)
-
+SUBTOTAL = float(0)
+TAX = float(SUBTOTAL * 0.101)
+TOTAL = float(SUBTOTAL + TAX)
+CATEGORIES = ['entrees', 'appetizers', 'desserts', 'sides', 'drinks']
 
 WIDTH = 96
 BANK = [
     {
-        'question' : 'What would you like to order?\n',
-        'answer': 'hamburger',
-        'status': False
+    'category': 'entrees',
+    'name': 'Hamburger',
+    'item': 'hamburger',
+    'amount': 1,
+    'price': 9.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Cheese burger',
+    'item': 'cheeseburger',
+    'amount': 1,
+    'price': 10.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Salmon Burger',
+    'item': 'salmonburger',
+    'amount': 1,
+    'price': 20.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Lamb Burger',
+    'item': 'lambburger',
+    'amount': 1,
+    'price': 10.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Garden Burger',
+    'item': 'gardenburger',
+    'amount': 1,
+    'price': 8.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Burger burger',
+    'item': 'burgerburger',
+    'amount': 1,
+    'price': 18.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Nasty Patty',
+    'item': 'nastypatty',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Krabby Patty',
+    'item': 'krabbypatty',
+    'amount': 1,
+    'price': 10.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'entrees',
+    'name': 'Ratty Patty',
+    'item': 'rattypatty',
+    'amount': 1,
+    'price': 7.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Mozzarella Sticks',
+    'item': 'mozzarellasticks',
+    'amount': 1,
+    'price': 4.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Spinach Artichoke Dip',
+    'item': 'spinachartichokedip',
+    'amount': 1,
+    'price': 7.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Fries',
+    'item': 'fries',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Poutine',
+    'item': 'poutine',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Nachos',
+    'item': 'nachos',
+    'amount': 1,
+    'price': 9.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Wontons',
+    'item': 'wontons',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Fried Egg',
+    'item': 'friedegg',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'Circular Pancake',
+    'item': 'circularpancake',
+    'amount': 1,
+    'price': 2.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'appetizers',
+    'name': 'PanCupcakes',
+    'item': 'pancupcakes',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Cheesecake'
+    'item': 'cheesecake',
+    'amount': 1,
+    'price': 6.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Apple Pie',
+    'item': 'applepie',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Taffy',
+    'item': 'taffy',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Laffy Taffy',
+    'item': 'laffytaffy',
+    'amount': 1,
+    'price': 4.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Craapy Taffy',
+    'item': 'Crappy Taffy',
+    'amount': 1,
+    'price': 2.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Loopy Taffy',
+    'item': 'loopytaffy',
+    'amount': 1,
+    'price': 4.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Droopy Taffy',
+    'item': 'droopytaffy',
+    'amount': 1,
+    'price': 4.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Sappy Taffy',
+    'item': 'sappytaffy',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'desserts',
+    'name': 'Bananas Foster',
+    'item': 'bananasfoster',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Side Salad',
+    'item': 'sidesalad',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Side Fries',
+    'item': 'sidefries',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Baked Potato',
+    'item': 'bakedpotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Snaked Potato',
+    'item': 'snakedpotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Jacked Potato',
+    'item': 'jackedpotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Troubled Potato',
+    'item': 'troubledpotato',
+    'amount': 1,
+    'price': 2.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Uncooked Potato',
+    'item': 'uncookedpotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Buffalo Potato'
+    'item': 'buffalopotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'sides',
+    'name': 'Billed Potato'
+    'item': 'billedpotato',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Moscow Mule'
+    'item': 'moscowmule',
+    'amount': 1,
+    'price': 6.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Under Mule'
+    'item': 'undermule',
+    'amount': 1,
+    'price': 3.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Double Mule'
+    'item': 'doublemule',
+    'amount': 1,
+    'price': 12.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Mulled Mule'
+    'item': 'mulledmule',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Some Mule'
+    'item': 'somemule',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Muddled Mule'
+    'item': 'muddledmule',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Appletini'
+    'item': 'appletini',
+    'amount': 1,
+    'price': 6.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Martini'
+    'item': 'martini',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
+    },
+    {
+    'category': 'drinks',
+    'name': 'Gin And Tonic'
+    'item': 'ginandtonic',
+    'amount': 1,
+    'price': 5.00,
+    'quantity': 0,
     }
         ]
 
 
-ENTREES = {
-    'Hamburger' : 6.00,
-    'Cheeseburger' : 9.00,
-    'Lamb Burger' : 10.00,
-    'Garden Burger' : 10.00,
-    'Salmon burger' : 20.00,
-    'Burger burger' : 10.00
-}
-
-
-APPETIZERS = {
-    'Mozzarella Sticks' : 4.00,
-    'Spinach Artichoke Dip' : 5.00,
-    'Fries' : 5.00,
-    'Poutine' : 5.00,
-    'Nachos' : 5.00,
-    'Wontons' : 3.00
-}
-
-
-DESSERTS = {
-    'Cheesecake' : 5.00,
-    'Apple Pie' : 5.00,
-    'Taffy' : 3.00,
-    'LaffyTaffy' : 3.00,
-    'CrappyTaffy' : 3.00,
-    'DroopyTaffy' : 3.00
-}
-
-
-SIDES = {
-    'Side Salad' : 3.00,
-    'Side Fries' : 3.00,
-    'Baked Potato' : 3.00,
-    'Snaked Potato' : 3.00,
-    'Troubled Potato' : 2.00,
-    'Uncooked Potato' : 3.00
-}
-
-DRINKS = {
-    'Moscow Mule' : 6.00,
-    'Double Mule' : 12.00,
-    'Under Mule' : 3.00,
-    'Mulled Mule' : 7.00,
-    'Some Mule' : 5.00,
-    'Muddled Mule' : 5.00
-}
-
-
 def menu():
-    for x in DRINKS:
+    for x in BANK:
         '''this round() is not changing to the 2nd or 3rd decimals place. not sure why'''
-        print (x,':',round(DRINKS[x],3))
+        print (x,':',round(BANK))
     print('-'*10)
-    for x in ENTREES:
+    for x in BANK:
         print (x,':',ENTREES[x])
     print('-'*10)
     for x in APPETIZERS:
@@ -96,10 +402,6 @@ def greeting():
     '''))
 
 
-def ask_question(question):
-    return input(question)
-
-
 def check_input(user_in, item):
     if user_in.lower().replace(' ', '') == 'quit':
         exit()
@@ -110,7 +412,7 @@ def check_input(user_in, item):
         feedback(status)
         ordering_process()
 
-    if user_in.lower() == 'order':
+    if user_in.lower() == 'quantity':
         order_total()
         ordering_process()
 
@@ -184,7 +486,7 @@ def order_total():
         Order #{uuid.uuid4()}
         {'='*36}
 
-        # {customer_order.items}           {customer_order.price}
+        # {customer_order.items}{customer_order.price}
 
     {'-'*18}
 
@@ -198,12 +500,7 @@ def order_total():
 
 
 def ordering_process():
-    for item in BANK:
-        while item['status'] is False:
-            user_in = ask_question(item['question'])
-            status = check_input(user_in, item)
-            feedback(status)
-            item['status'] is False
+    print('What would you like to order?')
 
 
 def run():
