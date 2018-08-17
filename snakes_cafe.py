@@ -3,11 +3,6 @@ import sys
 import uuid
 
 
-def translate():
-    for food in BANK:
-        print(', '.join(food['item'], food['category'], food['price'], 10))
-
-
 '''totals at the top as global variables for easier access. helps with
 scoping'''
 SUBTOTAL = float(0)
@@ -382,24 +377,24 @@ BANK = [
 
 
 # def menu():
-#     for x in BANK:
-#         '''this round() is not changing to the 2nd or 3rd decimals place.
-#               not sure why'''
-#         print(x, ':', round(BANK))
-#     print('-'*10)
-#     for x in BANK:
-#         print(x, ':', ENTREES[x])
-#     print('-'*10)
-#     for x in APPETIZERS:
-#         print(x, ':', APPETIZERS[x])
-#     print('-'*10)
-#     for x in DESSERTS:
-#         print(x, ':', DESSERTS[x])
-#     print('-'*10)
-#     for x in SIDES:
-#         print(x, ':', SIDES[x])
-#     print('-'*10)
-#     ordering_process()
+# for x in BANK:
+#     '''this round() is not changing to the 2nd or 3rd decimals place.
+#           not sure why'''
+#     print(x, ':', round(BANK))
+# print('-'*10)
+# for x in BANK:
+#     print(x, ':', ENTREES[x])
+# print('-'*10)
+# for x in APPETIZERS:
+#     print(x, ':', APPETIZERS[x])
+# print('-'*10)
+# for x in DESSERTS:
+#     print(x, ':', DESSERTS[x])
+# print('-'*10)
+# for x in SIDES:
+#     print(x, ':', SIDES[x])
+# print('-'*10)
+# ordering_process()
 
 
 def greeting():
@@ -463,17 +458,17 @@ def check_input(user_in, item):
     #     ordering_process()
 
 
-# def feedback(status):
-#     if status is True:
-#         print(dedent(f'''
-#             You ordered a {user_in}!\n
-#         '''))
-#         ordering_process()
+def feedback(status):
+    if status is True:
+        # print(dedent(f'''
+        #     You ordered a {user_in}!\n
+        # '''))
+        ordering_process()
 
-#     else:
-#         print(dedent('''
-#             Sorry, I do not understand. Do you mind repeating your order?\n
-#         '''))
+    else:
+        print(dedent('''
+            Sorry, I do not understand. Do you mind repeating your order?\n
+        '''))
 
 
 # def customer_order(user_in, items, price):
@@ -517,7 +512,6 @@ def ordering_process():
 
 def run():
     greeting()
-    translate()
     # menu()
 
 
